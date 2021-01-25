@@ -14,10 +14,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     
     if id:
         try:
-            url = "localhost"  # TODO: Update with appropriate MongoDB connection information
+            url = "mongodb://mongodb-neighborly-01:Hj149fALbvQfuyhz3t74nJZ5BHIbIHrRdE4gBcdQvYF6i5aAS2lUI7qRA7TBGtHEyVFZImv9Kq00zWRl5VQFSQ==@mongodb-neighborly-01.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@mongodb-neighborly-01@"  # TODO: Update with appropriate MongoDB connection information
             client = pymongo.MongoClient(url)
-            database = client['azure']
-            collection = database['advertisements']
+            database = client['db-udacity-neighborly-01']
+            collection = database['ads']
            
             query = {'_id': ObjectId(id)}
             result = collection.find_one(query)
